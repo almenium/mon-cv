@@ -15,3 +15,11 @@ function myFunction() {
         navbar.classList.remove("sticky");
     }
 }
+
+//
+$('[lang="es"]').hide();
+
+$('#switch-lang').click(function() {
+    $('[lang="fr"]').toggle();
+    $('[lang="en"]').toggle();
+});
