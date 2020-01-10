@@ -2,13 +2,11 @@ html,
 body {
     color: #F3EFE0;
     font-family: 'Open Sans', sans-serif !important;
-}
-
-body {
     background: #434242;
     font-size: 20px;
     line-height: 1.64;
 }
+
 
 h1,
 h2,
@@ -60,19 +58,6 @@ h3 {
     visibility: hidden;
 }
 
-/* p.lead {
-    text-align: center;
-    color: #727878;
-}
-
-p.lead a {
-    color: #FFFFFF;
-    text-decoration: underline;
-}
-
-p.lead a:hover {
-    text-decoration: none;
-} */
 
 hr {
     margin: 40px 0px;
@@ -215,15 +200,15 @@ ul.no-bullets {
 
 /* Navbar links */
 
-a {
+.nav-item>a {
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px;
+    padding: 0px 6px;
     text-decoration: none;
 }
 
-a:hover {
+.nav-item>a:hover {
     text-decoration: none;
     color: cadetblue;
 }
