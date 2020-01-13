@@ -87,8 +87,6 @@ ul.no-bullets {
     -moz-height : 90vh;
     -o-background-size: 100% 100%;
     -o-height : 90vh;
-    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/dev\ web.jpg', sizingMethod='scale')";
-    filter: progid: DXImageTransform.Microsoft.AlphaImageLoader(src='../img/dev\ web.jpg', sizingMethod='scale');
     margin-bottom: 0px;
     padding: 0px;
 }
