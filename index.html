@@ -1,559 +1,330 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
+  <meta charset="UTF-8" />
+  <title>CV Alexia Ménier - Développeuse Full-Stack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #1d71b8;
+      --primary-dark: #0f4c81;
+      --primary-light: #e3efff;
+      --text-main: #1f2933;
+      --text-muted: #6b7280;
+      --bg-page: #f3f6fb;
+      --border-soft: #dde7f5;
+    }
 
-    <title>ALEXIA MÉNIER</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, height=device-height, itial-scale=1">
-    <meta name="description" content="Voici mon cv en ligne">
-    <meta name="keywords" content="Résumé, CV">
-    <meta name="author" content="Alexia Ménier">
+    * {
+      box-sizing: border-box;
+    }
 
-    <!-- stylesheet -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    body.cv-modern {
+      margin: 0;
+      padding: 32px 16px;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #f0f6ff, #f9fbff 50%, #edf3ff 100%);
+      color: var(--text-main);
+    }
 
+    .cv-container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 14px 40px rgba(15, 76, 129, 0.12);
+      padding: 32px 32px 40px;
+      border: 1px solid var(--border-soft);
+    }
+
+    header {
+      border-bottom: 1px solid var(--border-soft);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin: 0;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--primary-dark);
+    }
+
+    header p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .contact {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .contact li::before {
+      content: "•";
+      color: var(--primary);
+      margin-right: 6px;
+    }
+
+    .btn-pdf {
+      align-self: flex-start;
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--primary);
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #ffffff;
+      font-size: 0.9rem;
+      text-decoration: none;
+      font-weight: 500;
+      box-shadow: 0 8px 20px rgba(15, 76, 129, 0.25);
+    }
+
+    .btn-pdf span {
+      font-size: 1.1rem;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    section:last-of-type {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin: 0 0 8px;
+      color: var(--primary-dark);
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 56px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    }
+
+    section p {
+      margin: 6px 0;
+      font-size: 0.95rem;
+    }
+
+    ul {
+      margin: 6px 0 0;
+      padding-left: 18px;
+      font-size: 0.95rem;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    article {
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #f8fbff;
+      border: 1px solid #e1ecff;
+      margin-bottom: 10px;
+    }
+
+    article h3 {
+      margin: 0;
+      font-size: 0.98rem;
+      color: var(--primary-dark);
+    }
+
+    .date {
+      display: inline-block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin: 2px 0 6px;
+    }
+
+    .portfolio-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 8px;
+    }
+
+    .portfolio-list li {
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #f5f8ff;
+      border: 1px dashed #c3d8ff;
+      margin-bottom: 8px;
+    }
+
+    .portfolio-list h3 {
+      margin: 0 0 2px;
+      font-size: 0.95rem;
+      color: var(--primary-dark);
+    }
+
+    .tagline {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 768px) {
+      header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      header > div:first-child {
+        max-width: 60%;
+      }
+
+      header > div:last-child {
+        text-align: right;
+      }
+
+      .contact {
+        justify-content: flex-end;
+      }
+
+      .btn-pdf {
+        margin-top: 10px;
+      }
+    }
+  </style>
 </head>
-
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
-    <!-- Jumbotron-->
-    <div id="top" class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <br class="saut">
-            <h1>Alexia Ménier</h1>
-            <p class="lead" lang="fr">CV Développeuse Web</p>
-            <!--<p class="lead" lang="en">CV Web Developper</p>-->
-            <br class="saut">
-        </div>
+<body class="cv-modern">
+  <div class="cv-container">
+  <header>
+    <div>
+      <h1>Alexia Ménier</h1>
+      <p>Développeuse Full-Stack PHP / JavaScript — 35 ans — Fréjus (déménagement prévu vers Chinon)</p>
+      <p class="tagline">Recherche poste à temps plein en télétravail (full remote)</p>
     </div>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <!--  <div id="navbar"> -->
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="#presentation">Présentation</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#experience">Expériences</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#competence">Compétences</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#interet">Intérêts</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <!--<a href="#">English</a>-->
-
-    <!-- PRESENTATION -->
-    <div id="presentation" class="background-white container-fluid">
-        <div class="container">
-            <br><br>
-            <h2>Présentation</h2>
-            <p style="text-align: center;">Développeuse FullStack</p>
-            <hr />
-            <div class="row">
-                <div class="col-md-8">
-                    <p style="text-align: justify;"> Je suis une apprentie développeuse familiarisée avec HTML, CSS, JavaScript et SQL.
-                        J'apprécie tout particulièrement le développement back-end et l’algorithmique, mais je peux
-                        m'adapter à toutes demandes. </p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <img src="img/h2g2.jpg" alt="photo" width="246" height="246" />
-                </div>
-                <div class="col-md-4">
-                    <h3>Détails</h3>
-                    <p>
-                        <strong>Nom:</strong><br /> Alexia Ménier<br />
-                        <strong>Age:</strong><br /> 30 ans<br />
-                        <strong>Adresse:</strong><br /> Fréjus, France, Terre
-                    </p>
-                </div>
-            </div>
-        </div>
+    <div>
+      <ul class="contact">
+        <li>alexia.menier.83@gmail.com</li>
+        <li>06 15 84 47 42</li>
+        <li>@alexia-menier-0501</li>
+        <li>Fréjus, France</li>
+      </ul>
+      <a class="btn-pdf" href="cv-alexia-menier.pdf" target="_blank" rel="noopener">
+        <span>⬇</span> Télécharger la version PDF
+      </a>
     </div>
+  </header>
 
+  <section>
+    <h2>À propos</h2>
+    <p>Développeuse full-stack expérimentée (PHP, JavaScript, SQL) spécialisée dans la conception, l’optimisation et la maintenance d’applications métier robustes. Organisée, autonome et passionnée par les technologies, je recherche un poste full remote dans le développement web ou SaaS.</p>
+  </section>
 
-    <!-- EXPERIENCES -->
-    <div id="experience" class="container">
-            <br><br>
-            <h2>Expériences</h2>
-            <!--   <p class="lead">
-            &ldquo;...&rdquo;<br />- ...
-            </p>-->
-            <hr />
+  <section>
+    <h2>Compétences</h2>
+    <ul>
+      <li><strong>Langages :</strong> PHP (4→8), JavaScript, HTML, CSS, SQL</li>
+      <li><strong>Frameworks :</strong> Bootstrap, Flutter, React (bases)</li>
+      <li><strong>Base de données :</strong> MSSQL, MySQL, DB2</li>
+      <li><strong>Outils :</strong> Git, Jira, AS400 (IBM iSeries)</li>
+      <li><strong>Méthodes :</strong> Agile, MVP, UX simple et fluide</li>
+      <li><strong>Soft skills :</strong> Curiosité, créativité, autonomie, visualisation, gestion du temps, communication à distance</li>
+    </ul>
+  </section>
 
-            <!-- Experiences pro -->
-            <h3>Expériences Professionnelles</h3>
-            <div class="expPro">
-                <div class="expPro row">
-                    <div class="col-md-4">
-                        <h4> L'encre Noire </h4>
-                        <p class="expPro-period">
-                            Octobre 2019 - Novembre 2019 </p>
-                    </div>
-                    <div class="col-md-8">
-                            <strong>Stagiaire Développeur Web</strong>
-                            <ul>
-                                <li>Maquettage d'un site web</li>
-                                <li>Mise en place d'un carte avec points d'intérets (Open Street Map)</li>
-                                <li>Création d'une page web site en construction </li>
-                                <li>Recherche et mise en place de solution sur le "term frequency - inverse
-                                    document frequency" et la "racination" pour un algorithme de recherche sur
-                                    un site web</li>
-                                <li>Modification d'un site wordpress (mise en place d'un formulaire de contact)
-                                    <a href="https://dr-mhallemann.ch/">https://dr-mhallemann.ch/</a></li>
-                            </ul>
-                            <i>Compétences démontrées</i>
-                            <ul>
-                                <li><i> Résolution de problèmes</i></li>
-                                <li><i> Établir un cahier des charges</i></li>
-                                <li><i> Concevoir une maquette de présentation</i></li>
-                                <li><i> Déterminer des choix techniques d'architecture logicielle et matérielle et
-                                    sélectionner des technologies, matériels, logiciels, configurations</i></li>
-                            </ul>
-                            <span class="expPro-details">
-                                <span class="location">
-                                    <span class="fa fa-map-marker"></span> Paris
-                                </span>
-                            </span>
-                    </div>
-                </div>
-                <br>
-                <div class="expPro row">
-                    <div class="col-md-4">
-                        <h4>DOMUS Vie Quotidienne </h4>
-                        <p class="expPro-period">
-                            Aout 2010 - Janvier 2018 </p>
-                    </div>
-                    <div class="col-md-8">
+  <section>
+    <h2>Expériences professionnelles</h2>
 
-                            <strong>Télé-opéatrice</strong>
-                            <ul>
-                                <li>Prise d'appels entrant</li>
-                                <li>Formation de nouveaux collaborateurs</li>
-                                <li>Gestion des dossiers sinistres habitation</li>
-                            </ul>
-                            <i>Compétences démontrées</i>
-                            <ul>
-                                <li><i>résolution de problèmes</i></li>
-                                <li><i>gestion du temps</i></li>
-                                <li><i>gestion du stress</i></li>
-                                <li><i>communication</i></li>
-                            </ul>
-                            <span class="expPro-details">
-                                <span class="location">
-                                    <span class="fa fa-map-marker"></span> Paris </span>
-                            </span>
-                    </div>
-                </div>
-                <br>
-                <div class="expPro row">
-                    <div class="col-md-4">
-                        <h4>Food INC </h4>
-                        <p class="expPro-period">
-                            Aout 2008 - Juin 2009 </p>
-                    </div>
-                    <div class="col-md-8">
-                            <strong>Vendeuse</strong>
-                            <ul>
-                                <li>...</li>
-                                <li>...</li>
-                                <li>...</li>
-                            </ul>
-                            <i>Compétences démontrées</i>
-                            <ul>
-                                <li><i>gestion du stress</i></li>
-                                <li><i>communication</i></li>
-                            </ul>
-                            <span class="expPro-details">
-                                <span class="location">
-                                    <span class="fa fa-map-marker"></span> Londres </span>
+    <article>
+      <h3>Développeuse Full-Stack PHP / JavaScript — Hydro Building System</h3>
+      <span class="date">Août 2020 — Aujourd’hui</span>
+      <ul>
+        <li>Étude et développement d’applications métier (ventes, finance, production).</li>
+        <li>Automatisation de rapports statistiques via MSSQL et PHP.</li>
+        <li>Intégration d’API externes et optimisation du traitement des données.</li>
+        <li>Modernisation du front (Bootstrap, JS).</li>
+      </ul>
+    </article>
 
+    <article>
+      <h3>Développeuse Web (Stage) — L’Encre Noire, Saint-Raphaël</h3>
+      <span class="date">Décembre 2018</span>
+      <ul>
+        <li>Développement front-end (React JS) et carte interactive OpenStreetMap.</li>
+        <li>Mise en place d’un moteur de recherche intelligent (stemming).</li>
+      </ul>
+    </article>
 
-                            </span>
-                    </div>
-                </div>
-                <br>
-                <div class="expPro row">
-                    <div class="col-md-4">
-                        <h4>Particulier </h4>
-                        <p class="expPro-period">
-                            Aout 2008 - Juin 2009 </p>
-                    </div>
-                    <div class="col-md-8">
-                        <p>
-                            <strong>Au pair en Angleterre</strong>
-                            <ul>
-                                <li>...</li>
-                                <li>...</li>
-                                <li>...</li>
-                            </ul>
-                            <i>Compétences démontrées</i>
-                            <ul>
-                                <li><i>...</i></li>
-                                <li><i>...</i></li>
-                            </ul>
-                                <span class="location expPro-details">
-                                    <span class="fa fa-map-marker"></span> Telford
-                                </span>
-                        
-                    </div>
-            </div>
+    <article>
+      <h3>Programmeuse Analyste — MODE83, Draguignan</h3>
+      <span class="date">2019–2020</span>
+    </article>
 
-            <hr />
+    <article>
+      <h3>Télé-gestionnaire — Domus Vie Quotidienne, Paris</h3>
+      <span class="date">Juin 2010 — Octobre 2019</span>
+      <ul>
+        <li>Gestion des sinistres habitation et formation des nouveaux collaborateurs.</li>
+        <li>Compétences développées : gestion du stress, priorisation, communication.</li>
+      </ul>
+    </article>
+  </section>
 
-            <!-- Formation -->
-            <h3>Formations</h3>
-            <div class="expPro">
-                <div class="expPro row">
-                    <div class="col-md-4">
-                        <h4>MODE</h4>
-                        <p class="expPro-period">
-                            Mai 2019 - Janvier 2020
-                        </p>
-                    </div>
-                    <div class="col-md-8">
-                        <p>
-                            <strong> TITRE PROFESSIONNEL NIVEAU III <br> DWWM (Développeur Web et Web
-                                Mobile)
-                            </strong>
-                            <br>
-                            <span class="expPro-details">
-                                <br>
-                                <span class="location">
-                                    <span class="fa fa-map-marker"></span> Saint-Raphael
-                                </span>
-                            </span>
-                        </p>
-                    </div>
-                </div>
+  <section>
+    <h2>Formation</h2>
+    <p><strong>Titre Professionnel Développeur Web et Web Mobile (DWWM)</strong> — Niveau III</p>
+  </section>
 
-                <div class="expPro row">
-                    <div class="col-md-4">
-                        <h4>ENCPB <br> (Ecole Nationale Chimie Physique Biologie)</h4>
-                        <p class="expPro-period">
-                            2005 - 2007
-                        </p>
-                    </div>
-                    <div class="col-md-8">
-                        <p>
-                            <strong>Lycée - STL Biologie</strong>
-                            <br>
-                            J'ai arreté mes études en 1ère pour devenir jeune fille au pair en
-                            Angleterre
-                            <span class="expPro-details">
-                                <br>
-                                <span class="location">
-                                    <span class="fa fa-map-marker"></span> Paris
-                                </span>
-                            </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <section>
+    <h2>Langues</h2>
+    <p>Français — Anglais</p>
+  </section>
 
-    <!-- COMPETENCES -->
-    <div id="competence">
-        <div class="background-white">
-            <br><br>
-            <div class="container">
-                <h2>Compétences</h2>
-                <!--  <p class="lead">
-                &ldquo;...&rdquo;<br />- ...
-                </p> -->
+  <section>
+    <h2>Portfolio</h2>
+    <ul class="portfolio-list">
+      <li>
+        <h3>Outil de statistiques ventes &amp; production</h3>
+        <p>Application interne (PHP / MSSQL) pour automatiser les rapports et suivre les indicateurs clés de performance.</p>
+      </li>
+      <li>
+        <h3>Cartographie interactive OpenStreetMap</h3>
+        <p>Interface front-end (React JS) intégrant une carte dynamique et un moteur de recherche intelligent (stemming).</p>
+      </li>
+      <li>
+        <h3>Application mobile de checklist maternité</h3>
+        <p>Projet personnel sous Flutter : checklist interactive et personnalisable pour préparer le sac d’accouchement.</p>
+      </li>
+    </ul>
+  </section>
 
-                <hr />
-
-                <!-- Compétences pro-->
-                <h3>Langages de programmation</h3>
-                <div class="row">
-                    <ul class="no-bullets col">
-                        <li>
-                            <span class="ability-title">HTML 5</span>
-                            <div class="row ability-score">
-                                <div class="col">
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star-empty"></span>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="no-bullets col">
-                        <li>
-                            <span class="ability-title">PHP</span>
-                            <div class="row ability-score">
-                                <div class="col">
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star-empty"></span>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <ul class="no-bullets col">
-                        <li>
-                            <span class="ability-title">CSS 4</span>
-                            <div class="row ability-score">
-                                <div class="col">
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star-half-empty"></span>
-                                    <span class="fa fa-star-empty"></span>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="no-bullets col">
-                        <li>
-                            <span class="ability-title">SQL</span>
-                            <div class="row ability-score">
-                                <div class="col">
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star-half-empty"></span>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <ul class="no-bullets col">
-                        <li>
-                            <span class="ability-title">JavaScript</span>
-                            <div class="row ability-score">
-                                <div class="col">
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star-half-empty"></span>
-                                    <span class="fa fa-star-empty"></span>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-
-                </div>
-
-
-                <hr />
-
-                <!-- Outils -->
-                <h3>Outils</h3>
-                <div class="row">
-                    <ul class="no-bullets">
-                        <li>
-                            <span class="ability-title col-sm-3">Visual Studio Code</span>
-                                <div class="col-sm-6 ability-score">
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-
-                        </li>
-                    </ul>
-                    <ul class="no-bullets">
-                        <li>
-                            <span class="ability-title col-sm-3">Visual Studio 2019</span>
-                                <div class="col-sm-6 ability-score">
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                        </li>
-                    </ul>
-                </div>
-
-
-                <hr />
-
-                <!-- Langues -->
-                <h3>Langues</h3>
-                <div class="row">
-                    <ul class="no-bullets">
-                        <li>
-                            <span class="ability-title col">Français (Langue Maternelle)</span>
-                                <div class="col ability-score">
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <ul class="no-bullets">
-                        <li>
-                            <span class="ability-title col">Anglais (I am bilingual)</span>
-                                <div class="col ability-score">
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <ul class="no-bullets">
-                        <li>
-                            <span class="ability-title col">Espagnol (Estoy un poco fuera de
-                                práctica)</span>
-                                <div class="col ability-score">
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star-empty"></span>
-                                    <span class="fa fa-star-empty"></span>
-                                </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <ul class="no-bullets">
-                        <li>
-                            <span class="ability-title col">Coréen (한국어 조금 할 수 있어요)</span>
-                                <div class="col ability-score">
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star-empty"></span>
-                                    <span class="fa fa-star-empty"></span>
-                                    <span class="fa fa-star-empty"></span>
-                                </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <ul class="no-bullets">
-                        <li>
-                            <span class="ability-title col">Japonais (おはようございます)</span>
-                                <div class="col ability-score">
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star-empty"></span>
-                                    <span class="fa fa-star-empty"></span>
-                                    <span class="fa fa-star-empty"></span>
-                                    <span class="fa fa-star-empty"></span>
-                                </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <hr />
-
-            </div>
-        </div>
-    </div>
-
-    <!-- INTERETS -->
-    <div id="interet">
-        <div class="container">
-            <br><br>
-            <h2>Intérêts</h2>
-            <div class="row">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-5">
-                    <img src="img/lord_of_the_ring.jpg" alt="Le seigneur des anneaux" style="width:100px;height:150px">
-                    <img src="img/chattam.jpg " alt="Prédateur" style="width:100px;height:150px">
-                </div>
-                <div class="col-sm-1"></div>
-                <div class="col-sm-5">
-                    <img src="img/division2.jpg" alt="dision 2" style="width:120px;height:130px">
-                    <img src="img/gw2.png" alt="guild wars 2" style="width:140px;height:120px">
-                </div>
-                <br>
-            </div>
-            <div class="row">
-                <div class="col-sm-6" style="font-size:125%">
-                    Lecture (Fantastique, Science-Fiction, Thriller)
-                </div>
-                <div class="col-sm-1"></div>
-                <div class="col-sm-5" style="font-size:125%">
-                    Jeux-Vidéo (MMORPG, RPG, Stratégie)
-                </div>
-                <br>
-                <hr />
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Contact -->
-    <div id="contact">
-        <div class="container-fluid bg-3 text-center ">
-            <h3 class="margin ">Contact</h3><br>
-            <div class="row ">
-                <div class="text-center col-sm-4 ">
-                    <!-- e-mail -->
-                    <span class="fa fa-envelope " style="font-size:400% "></span>
-                    <p> alexia.menier@gmail.com </p>
-                </div>
-                <div class="text-center col-sm-4 ">
-                    <!-- linkedin -->
-                    <a href="https://fr.linkedin.com/in/alexia-m%C3%A9nier-14131318a " target=_blank>
-                        <img src="https://audiotactic.fr/wp-content/uploads/2015/06/linkedin-logo-e1407144392549.png "
-                            alt="linkedin " style="width:20%;height:25% ">
-                    </a>
-                </div>
-                <div class="text-center col-sm-4 ">
-                    <!-- Phone number -->
-                    <span class="fa fa-phone " style="font-size:400% "></span>
-                    <p>(+33) 06 15 84 47 42</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br class="saut ">
-    <footer class="container-fluid bg-4 text-center ">
-        <div class="footer ">
-            <div class="glyphicon glyphicon-copyright-mark " style="font-size:200% "></div> Tous droits
-            réservés <br class="saut "> Créé par Alexia Ménier
-        </div>
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+  <section>
+    <h2>Centres d’intérêt</h2>
+    <ul>
+      <li>Littérature fantastique et science-fiction</li>
+      <li>Jeux vidéo : MMORPG, RPG, stratégie</li>
+      <li>Nouvelles technologies</li>
+    </ul>
+  </section>
+  </div>
 </body>
-
 </html>
